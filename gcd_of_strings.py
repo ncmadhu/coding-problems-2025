@@ -1,3 +1,4 @@
+import math
 class Solution:
     def gcdOfStrings(self, str1: str, str2: str) -> str:
         print(f"GCD of strings {str1} {str2}")
@@ -20,6 +21,15 @@ class Solution:
                 return str1[:i]
         return "None"
 
+    def alternate_solution(self, str1, str2):
+        print(f"GCD of strings {str1} {str2}")
+        # If both the strings have GCD then concatenated strings in any order should be equal
+        # ABCABCABC + ABCABC == ABCABC + ABCABCABC == ABCABCABCABCABC
+        if (str1 + str2) != (str2 + str1):
+            return ""
+        max_length = math.gcd(len(str1), len(str2))
+        return str1[:max_length]
+
 
 if __name__ == "__main__":
     sol = Solution()
@@ -27,3 +37,4 @@ if __name__ == "__main__":
     print(sol.gcdOfStrings("ABAB", "ABC"))
     print(sol.gcdOfStrings("ABABAB", "ABAB"))
     print(sol.gcdOfStrings("ABAB", "ABAB"))
+    print(sol.alternate_solution("ABABAB", "ABAB"))
