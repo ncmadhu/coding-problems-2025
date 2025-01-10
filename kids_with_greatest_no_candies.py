@@ -2,7 +2,13 @@ from typing import List
 
 class Solution:
     def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List:
-
+        result = [False for x in range(len(candies))]
+        max_candy = max(candies)
+        result[0] = True
+        for i in range(0, len(candies)):
+            if candies[i] + extraCandies >= max_candy:
+                result[i] = True
+        return result
 
 
 
