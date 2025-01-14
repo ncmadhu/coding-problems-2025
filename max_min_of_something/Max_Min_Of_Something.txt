@@ -1,0 +1,34 @@
+This type of problem usually asks to calculate max or min of given set of something
+
+    --> maximizing profit
+    --> minimizing cost
+
+We can identify this from some keywords in the problem statement such as max/min, minimize/maximize, shortest/longest,
+least/greatest, etc.
+
+These problems can be solved using one of the following methods
+
+--- Monotonic condition
+    Binary Search
+
+--- Can be split into sub problems
+    Dynamic programming
+
+    Minimum Cost Climbing Stairs
+        We can make two important observations about this problem. First, we need to find the maximum or minimum of
+        something. Second, we have to make decisions that might look different depending on decisions we made
+        previously. These characteristics are typical of a dynamic programming problem. In this case, we need to make
+        decisions about either taking 1 step or 2 steps at a time, and our goal is to minimize the overall cost.
+
+        So how do we find the minimum cost to reach step 4 or step 5? Well, you might notice that it's the exact
+        same problem, just with a smaller input. For example, finding the minimum cost to reach step 4 is like solving
+        the original problem with input [0,1,2,3] (step 4 is the "top of the floor" now). To solve this sub problem,
+        we need to find the minimum cost to reach steps 2 and 3, which requires us to answer the original problem
+        for inputs [0,1] and [0,1,2].
+
+--- Greedily calculate answers
+    Greedy Algorithms
+
+    A greedy algorithm will solve a problem if picking the best option at every decision point is always optimal
+    to the final answer. To get good intuition if some greedy algorithm is optimal, we should try testing the
+    idea on the sample input or coming up with small test cases ourselves.
