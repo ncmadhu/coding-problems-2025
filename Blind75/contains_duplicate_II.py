@@ -25,5 +25,5 @@ def contains_duplicate_ii(nums, k):
 
 
 if __name__ == "__main__":
-    print(contains_duplicate_ii([1,2,3,1,2,3], 2))
+    print(contains_duplicate_ii([1,2,3,1,2,4], 2))
     print(contains_duplicate_ii([1,2,3,1], 3))
