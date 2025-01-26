@@ -24,6 +24,25 @@ def contains_duplicate_ii(nums, k):
     return False
 
 
+def replay(nums, k):
+    # 1. Index position is needed, Hence we cannot use sort
+    # 2. Array is not sorted, Hence we cannot use two pointer
+    # 3. Since we need to find an element already seen, we can use hash map
+    # 4. Iterate the array, add the element to the hashmap if not already present with element has key and index has value
+    # 5. If the element is present, check for equality and if equal check the index difference == k
+    # 6. If equal to k return true
+    seen_elements = {}
+    for index, value in enumerate(nums):
+        if value in seen_elements and abs(seen_elements[value] - index) + 1 <= k:
+            return True
+        else:
+            seen_elements[value] = index
+    return False
+
+
 if __name__ == "__main__":
-    print(contains_duplicate_ii([1,2,3,1,2,4], 2))
-    print(contains_duplicate_ii([1,2,3,1], 3))
+    print(replay([99, 99], 2))
+    # print(contains_duplicate_ii([1,2,3,1,2,4], 2))
+    # print(contains_duplicate_ii([1,2,3,1], 3))
+    # print(contains_duplicate_ii([1, 2, 3, 1], 2))
+
