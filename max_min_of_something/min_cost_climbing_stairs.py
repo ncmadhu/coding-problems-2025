@@ -30,12 +30,23 @@ def topDownApproach(cost: List[int]) -> int:
         return memoization[i]
     return minimumCost(len(cost))
 
+
+def constant_space(cost):
+    n = len(cost)
+    if n <= 1:
+        return 0
+    t1 = t2 = 0
+    for i in range(2, n+1):
+        t1, t2 = min(t1 + cost[i-1], t2 + cost[i-2]), t1
+    return t1
+
 if __name__ == "__main__":
     cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
     print(minCostClimbingStairs(cost))
     cost = [10,15,20]
     print(minCostClimbingStairs(cost))
-    cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
-    print(topDownApproach(cost))
     cost = [10,15,20]
     print(topDownApproach(cost))
+    cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
+    print(topDownApproach(cost))
+    print(constant_space(cost))
