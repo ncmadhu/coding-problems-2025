@@ -28,7 +28,19 @@ def buy_sell_stock_multiple_times(prices):
     return total_profit
 
 
+def replay(prices):
+    total_profit = 0
+    for i in range(1, len(prices)):
+        if prices[i] > prices[i-1]:
+            total_profit +=  prices[i] - prices[i-1]
+    return total_profit
+
+
+
 if __name__ == "__main__":
     print(buy_sell_stock_multiple_times([7,1,5,3,6,4]))
     print(buy_sell_stock_multiple_times([1,2,3,4,5]))
     print(buy_sell_stock_multiple_times([7,6,4,3,1]))
+    print(replay([7,1,5,3,6,4]))
+    print(replay([1,2,3,4,5]))
+    print(replay([7,6,4,3,1]))

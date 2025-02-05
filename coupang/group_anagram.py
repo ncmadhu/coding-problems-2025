@@ -21,6 +21,7 @@
 # Input: strs = ["a"]
 #
 # Output: [["a"]]
+import collections
 from collections import defaultdict
 
 
@@ -34,6 +35,17 @@ def problem_to_solve(strs):
     return [value for value in anagrams_group.values()]
 
 
+def replay(strs):
+    anagrams_group = collections.defaultdict(list)
+
+    for s in strs:
+        key = [0] * 26
+        for ch in s:
+            key[ord(ch) - ord('a')] += 1
+        anagrams_group[tuple(key)].append(s)
+    return list(anagrams_group.values())
+
 
 if __name__ == "__main__":
     print(problem_to_solve(["eat","tea","tan","ate","nat","bat"]))
+    print(replay(["eat", "tea", "tan", "ate", "nat", "bat"]))

@@ -30,24 +30,25 @@ def reverse_words_in_a_string(sentence):
     return "".join(sen_list)
 
 def alternate_solution(sentence):
+    n = len(sentence)
+    s = list(sentence)
     left = right = 0
-    s_list = list(sentence)
-    s_len = len(s_list)
-    for right in range(s_len):
-        if s_list[right] == ' ':
-            reverse_str(s_list, left, right-1)
+    while right < n:
+        if s[right] == " ":
+            reverse_word(s, left, right)
             left = right + 1
-    reverse_str(s_list, left, right)
-    return "".join(s_list)
+        right += 1
+    reverse_word(s, left, right)
+    return "".join(s)
 
-def reverse_str( word, start, end):
-    mid = (start + end) // 2
-    while start <= mid:
-        word[start], word[end] = word[end], word[start]
-        start += 1
-        end -= 1
+def reverse_word(s, left, right):
+    mid = (left + right) // 2
+    while left < mid:
+        s[left], s[right-1] = s[right-1], s[left]
+        left += 1
+        right -= 1
 
 
 if __name__ == "__main__":
-    print(reverse_words_in_a_string("Let's take LeetCode contest"))
+    # print(reverse_words_in_a_string("Let's take LeetCode contest"))
     print(alternate_solution("Let's take LeetCode contest"))

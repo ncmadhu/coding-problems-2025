@@ -25,6 +25,19 @@ def best_day_to_buy_sell_stock(prices):
     return max_profit
 
 
+def replay(prices):
+    lowest_price = prices[0]
+    max_profit = 0
+    for price in prices:
+        if price < lowest_price:
+            lowest_price = price
+        else:
+            max_profit = max(max_profit, price-lowest_price)
+    return max_profit
+
+
 if __name__ == "__main__":
     print(best_day_to_buy_sell_stock( [7,1,5,3,6,4]))
     print(best_day_to_buy_sell_stock([7,6,4,3,1]))
+    print(replay([7, 1, 5, 3, 6, 4]))
+    print(replay([7, 6, 4, 3, 1]))
